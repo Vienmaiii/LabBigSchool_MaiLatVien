@@ -18,7 +18,7 @@ namespace LabBigSchool_MaiLatVien.Controllers
         }
         // GET: Courses
         [Authorize]
-        
+        [HttpGet]
         public ActionResult Create()
         {
             var viewModel = new CourseViewModel
@@ -27,8 +27,16 @@ namespace LabBigSchool_MaiLatVien.Controllers
             };
             return View(viewModel);
         }
-        /*public ActionResult Create(CourseViewModel viewModel)
+        [Authorize]
+        [HttpPost]
+        public ActionResult Create(CourseViewModel viewModel)
         {
+            
+            if (!ModelState.IsValid)
+            {
+                viewModel.Categories = _dbContext.Categories.ToList();
+                return View("Create", viewModel);
+            }
             var course = new Course
             {
                 LecturerID = User.Identity.GetUserId(),
@@ -38,8 +46,7 @@ namespace LabBigSchool_MaiLatVien.Controllers
             };
             _dbContext.Courses.Add(course);
             _dbContext.SaveChanges();
-
             return RedirectToAction("Index", "Home");
-        }*/
+        }
     }
 }
