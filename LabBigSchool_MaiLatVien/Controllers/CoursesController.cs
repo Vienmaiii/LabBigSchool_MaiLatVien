@@ -29,6 +29,7 @@ namespace LabBigSchool_MaiLatVien.Controllers
         }
         [Authorize]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(CourseViewModel viewModel)
         {
             
@@ -39,7 +40,7 @@ namespace LabBigSchool_MaiLatVien.Controllers
             }
             var course = new Course
             {
-                LecturerID = User.Identity.GetUserId(),
+                LecturerId = User.Identity.GetUserId(),
                 DateTime = viewModel.GetDateTime(),
                 CategoryId = viewModel.Category,
                 Place = viewModel.Place,

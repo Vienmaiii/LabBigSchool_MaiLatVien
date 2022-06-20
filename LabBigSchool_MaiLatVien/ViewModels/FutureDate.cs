@@ -12,7 +12,7 @@ namespace LabBigSchool_MaiLatVien.ViewModels
         public override bool IsValid(object value)
         {
             DateTime dataTime;
-            var isValid = DateTime.TryParseExact(Convert.ToString(value), "dd/MM/dddd", CultureInfo.CurrentCulture, DateTimeStyles.None,out dataTime);
+            var isValid = DateTime.TryParseExact(Convert.ToString(value), "dd/MM/yyyy", CultureInfo.CurrentCulture, DateTimeStyles.None,out dataTime);
             return (isValid && dataTime > DateTime.Now );
         }
     }

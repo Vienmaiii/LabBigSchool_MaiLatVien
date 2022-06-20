@@ -22,3 +22,32 @@ select,
 textarea {
     max-width: 280px;
 }
+.navbar-inverse {
+    background-color: #6a0960;
+    border-color: #080808;
+}
+.navbar-inverse .navbar-nar > li > a {
+    color: white;
+}
+.navbar-inverse .navbar-brand {
+    color: white;
+}
+.course{
+    list-style: none;
+}
+.course > li{
+    position: relative;
+    margin-bottom: 30px;
+}
+    .course > li .date {
+        text-align: center;
+        background-color: #6a0960;
+        color: white;
+        width: 30px;
+        border-radius: 8px;
+    }
+    .course > li .details{
+        position: absolute;
+        top: 0;
+        left: 70px;
+    }
